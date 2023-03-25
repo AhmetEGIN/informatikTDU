@@ -26,8 +26,12 @@ public class Main {
 			String nachname = scan.nextLine();
 			
 			Kunde kunde = new Kunde(buergerId, name, nachname);
+			
 			kunden[0] = kunde;
 		}
+		
+		
+//		System.out.println(kunden[30]);
 		scan.close();
 		
 	}

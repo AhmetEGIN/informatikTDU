@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Egin
- *
- */
-module informatikTDU {
-}
