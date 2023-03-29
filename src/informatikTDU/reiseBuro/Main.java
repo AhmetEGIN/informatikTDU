@@ -10,7 +10,7 @@ public class Main {
 		MitarbeiterManager mitarbeiterManager = new MitarbeiterManager();
 
 		Scanner scan = new Scanner(System.in);
-
+		
 		int operation = 0;
 		while (operation != 100) {
 			System.out.println(Messages.MAIN_MENU);
@@ -18,31 +18,32 @@ public class Main {
 			scan.nextLine();
 			
 			if (operation == 1) {
-				System.out.println("Bitte Geben Sie den Vornamen ein: ");
+				System.out.println("Bitte geben Sie den Vornamen ein: ");
 				String name = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den Nachnamen ein: ");
+				System.out.println("Bitte geben Sie den Nachnamen ein: ");
 				String nachname = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den BuergerId ein: ");
+				System.out.println("Bitte geben Sie den BuergerId ein: ");
 				String identityNumber = scan.nextLine();
+				
+				
 
-				System.out.println("Bitte schreiben Sie ihr Geburtsdatum in Form YYYY-MM-DD ein:");
+				System.out.println("Bitte schreiben Sie ihr Geburtsdatum in Form YYYY-MM-DD: ");
 				String tempDate = scan.nextLine();
-
 				LocalDate birthDate = LocalDate.of(Integer.parseInt(tempDate.split("-")[0]),
 						Integer.parseInt(tempDate.split("-")[1]), Integer.parseInt(tempDate.split("-")[2]));
 
-				System.out.println("Bitte Geben Sie ihre Address ein: ");
+				System.out.println("Bitte geben Sie ihre Address ein: ");
 				String address = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie ihre Telefonnummer ein: ");
+				System.out.println("Bitte geben Sie ihre Telefonnummer ein: ");
 				String phoneNumber = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den Versicherungsnummer ein: ");
+				System.out.println("Bitte geben Sie den Versicherungsnummer ein: ");
 				String insuranceNumber = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den Erwerbsposition ein: ");
+				System.out.println("Bitte geben Sie den Erwerbsposition ein: ");
 				String jobPosition = scan.nextLine();
 
 				Mitarbeiter mitarbeiter = new Mitarbeiter(operation, name, nachname, identityNumber, birthDate, address,
@@ -51,32 +52,34 @@ public class Main {
 				System.out.println(Messages.PERSON_ADDED);
 
 			} else if (operation == 2) {
+				
 				mitarbeiterManager.printAllMitarbeiter();
+				
 			} else if (operation == 3) {
-				System.out.println("Bitte Geben Sie den Vornamen ein: ");
+				System.out.println("Bitte geben Sie den Vornamen ein: ");
 				String name = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den Nachnamen ein: ");
+				System.out.println("Bitte geben Sie den Nachnamen ein: ");
 				String nachname = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den BuergerId ein: ");
+				System.out.println("Bitte geben Sie den BuergerId ein: ");
 				String identityNumber = scan.nextLine();
 
 				System.out.println("Bitte schreiben Sie ihr Geburtsdatum in Form YYYY-MM-DD ein:");
 				String tempDate = scan.nextLine();
-
 				LocalDate birthDate = LocalDate.of(Integer.parseInt(tempDate.split("-")[0]),
 						Integer.parseInt(tempDate.split("-")[1]), Integer.parseInt(tempDate.split("-")[2]));
-				System.out.println("Bitte Geben Sie ihre Address ein: ");
+				
+				System.out.println("Bitte geben Sie ihre Address ein: ");
 				String address = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie ihre Telefonnummer ein: ");
+				System.out.println("Bitte geben Sie ihre Telefonnummer ein: ");
 				String phoneNumber = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den Kundennummer ein: ");
+				System.out.println("Bitte geben Sie den Kundennummer ein: ");
 				String customerNumber = scan.nextLine();
 
-				System.out.println("Bitte Geben Sie den Kreditwürdigkeit ein: ");
+				System.out.println("Bitte geben Sie den Kreditwürdigkeit ein: ");
 				int creditRating = scan.nextInt();
 
 				Kunde kunde = new Kunde(operation, name, nachname, identityNumber, birthDate, address, phoneNumber,
@@ -85,15 +88,17 @@ public class Main {
 				System.out.println(Messages.PERSON_ADDED);
 
 			} else if (operation == 4) {
+				
 				kundeManager.printAllKunden();
+				
 			}
 			else if(operation == 100) {
+				
 				System.out.println(Messages.PROGRAM_ENDED);
-				break;
+
 			}
 
 		}
-		
 		
 		scan.close();
 	}

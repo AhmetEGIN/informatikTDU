@@ -19,8 +19,9 @@ public class KundeManager {
 			System.out.println("Vor- und Nachname: " + kunden[i].getFirstName() + " " + kunden[i].getLastName());
 			System.out.println("BürgerID: " + kunden[i].getIdentityNumber());
 			System.out.println("Kundennummer: " + kunden[i].getCustomerNumber());
-			
+
 		}
+
 	}
 
 }

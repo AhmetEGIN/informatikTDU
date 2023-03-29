@@ -24,5 +24,10 @@ public class Mitarbeiter extends Person {
 	public void setPersonalNummer(String personalNummer) {
 		this.personalNummer = personalNummer;
 	}
-
+	
+	@Override
+	public void printInfo() {
+		// TODO Auto-generated method stub
+		super.printInfo();
+	}
 }

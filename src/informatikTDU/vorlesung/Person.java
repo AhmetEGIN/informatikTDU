@@ -11,15 +11,13 @@ public class Person {
 	}
 
 	public Person(String name, String nachname, String buergerId) {
+		this(buergerId);  // Aufruf einer internen Konstrukturfunktion
 		this.name = name;
 		this.nachname = nachname;
-		this.buergerId = buergerId;
 	}
 
 	public Person(String name, String nachname, String buergerId, int alter) {
-		this.name = name;
-		this.nachname = nachname;
-		this.buergerId = buergerId;
+		this(name, nachname, buergerId);
 		this.alter = alter;
 	}
 
@@ -53,6 +51,10 @@ public class Person {
 
 	public void setAlter(int alter) {
 		this.alter = alter;
+	}
+	
+	public void printInfo() {
+		System.out.println("aosond");
 	}
 
 }
