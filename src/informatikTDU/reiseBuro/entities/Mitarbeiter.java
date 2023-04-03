@@ -1,4 +1,4 @@
-package informatikTDU.reiseBuro;
+package informatikTDU.reiseBuro.entities;
 
 import java.time.LocalDate;
 

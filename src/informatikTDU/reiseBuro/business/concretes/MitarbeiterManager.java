@@ -1,6 +1,9 @@
-package informatikTDU.reiseBuro;
+package informatikTDU.reiseBuro.business.concretes;
 
-public class MitarbeiterManager {
+import informatikTDU.reiseBuro.business.abstracts.MitarbeiterService;
+import informatikTDU.reiseBuro.entities.Mitarbeiter;
+
+public class MitarbeiterManager implements MitarbeiterService {
 	private Mitarbeiter[] mitarbeiter;
 	private int n = 0;
 
@@ -8,11 +11,13 @@ public class MitarbeiterManager {
 		mitarbeiter = new Mitarbeiter[100];
 	}
 
+	@Override
 	public void mitarbeiterHinzufügen(Mitarbeiter m) {
 		mitarbeiter[n] = m;
 		n++;
 	}
 
+	@Override
 	public void printAllMitarbeiter() {
 
 		for (int i = 0; i < n; i++) {
