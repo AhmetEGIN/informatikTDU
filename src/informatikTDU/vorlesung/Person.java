@@ -1,10 +1,13 @@
 package informatikTDU.vorlesung;
 
-public class Person {
+public abstract class Person  extends Object{
 	private String name;
 	private String nachname;
 	private String buergerId;
 	private int alter;
+	private String happyTravelsID;  
+	// ID von Kunde soll mit k anfangen und dann eine Nummer
+	// ID von Mitarbeiter soll mit m anfangen und dann eine Nummer
 
 	public Person(String buergerId) {
 		this.buergerId = buergerId;
@@ -20,6 +23,9 @@ public class Person {
 		this(name, nachname, buergerId);
 		this.alter = alter;
 	}
+	
+	abstract public void setHappyTravelsID(String id);
+	
 
 	public String getName() {
 		return this.name;
@@ -53,8 +59,6 @@ public class Person {
 		this.alter = alter;
 	}
 	
-	public void printInfo() {
-		System.out.println("aosond");
-	}
-
+	
+	
 }

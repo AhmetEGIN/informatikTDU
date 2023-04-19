@@ -7,5 +7,6 @@ public interface MitarbeiterService {
 	void mitarbeiterHinzufügen(Mitarbeiter mitarbeiter);
 
 	void printAllMitarbeiter();
+	Mitarbeiter getByIdentityNumber(String identityNumber);
 
 }

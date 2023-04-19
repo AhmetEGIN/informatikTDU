@@ -6,5 +6,6 @@ public interface KundeService {
 	
 	void kundeHinzufügen(Kunde kunde);
 	void printAllKunden();
+	Kunde getByIdentityNumber(String identityNumber);
 	
 }

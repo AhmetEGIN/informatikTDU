@@ -1,38 +1,46 @@
 package informatikTDU.reiseBuro.business.concretes;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import informatikTDU.reiseBuro.business.abstracts.KundeService;
+import informatikTDU.reiseBuro.business.constants.systemMessages.Messages;
 import informatikTDU.reiseBuro.entities.Kunde;
 
 public class KundeManager implements KundeService {
+
 	private Kunde[] kunden;
+
 	private int n = 0;
+	private static int id = 1;
 
 	public KundeManager() {
 		kunden = new Kunde[100];
 	}
 
-	
 	@Override
 	public void kundeHinzufügen(Kunde kunde) {
+		kunde.setId(id);
 		kunden[n] = kunde;
+		id++;
 		n++;
+
 	}
 
 	@Override
 	public void printAllKunden() {
+		Consumer<Kunde> consumer = k -> System.out.println(k);
+		Arrays.stream(kunden, 0, n).forEach(consumer);
 
-//		for (int i = 0; i < n; i++) {
-//			System.out.println("Vor- und Nachname: " + kunden[i].getFirstName() + " " + kunden[i].getLastName());
-//			System.out.println("BürgerID: " + kunden[i].getIdentityNumber());
-//			System.out.println("Kundennummer: " + kunden[i].getCustomerNumber());
-//
-//		}
-		
-		Arrays.stream(kunden, 0, n).forEach(item -> System.out.println(item.getAddress()));
-		
-		
+	}
+
+	@Override
+	public Kunde getByIdentityNumber(String identityNumber) {
+		Predicate<Kunde> predicate = k -> k.getIdentityNumber().equals(identityNumber);
+		return Arrays.stream(kunden, 0, n).filter(predicate).findFirst()
+				.orElseThrow(() -> new NullPointerException(Messages.KUNDE_NOT_FOUND));
+
 	}
 
 }

@@ -25,4 +25,16 @@ public class Kunde extends Person {
 		this.kundenNummer = kundenNummer;
 	}
 
+	@Override
+	public void setHappyTravelsID(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public String toString() {
+		
+		return "Name: " + getNachname();
+	}
+
 }

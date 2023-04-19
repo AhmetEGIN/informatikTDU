@@ -25,9 +25,16 @@ public class Mitarbeiter extends Person {
 		this.personalNummer = personalNummer;
 	}
 	
+
 	@Override
-	public void printInfo() {
-		// TODO Auto-generated method stub
-		super.printInfo();
+	public void setHappyTravelsID(String id) {
+		if (id.startsWith("m")) {
+			
+			
+		}
+		
 	}
+	
+
+	
 }

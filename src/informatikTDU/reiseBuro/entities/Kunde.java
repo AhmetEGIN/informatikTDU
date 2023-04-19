@@ -28,6 +28,16 @@ public class Kunde extends Person {
 		this.creditRating = creditRating;
 	}
 
+	public Kunde(String firstName, String lastName, String identityNumber, LocalDate birthDate, String address,
+			String phoneNumber, String customerNumber, String cardNumber, int creditRating) {
+		
+		super(firstName, lastName, identityNumber, birthDate, address, phoneNumber);
+		
+		this.customerNumber = customerNumber;
+		this.cardNumber = cardNumber;
+		this.creditRating = creditRating;
+	}
+
 	public String getCustomerNumber() {
 		return customerNumber;
 	}
@@ -50,6 +60,12 @@ public class Kunde extends Person {
 
 	public void setCreditRating(int creditRating) {
 		this.creditRating = creditRating;
+	}
+	
+	@Override
+	public String toString() {
+		return "Vor- und Nachname: " + getFirstName() + " " + getLastName() +"\n" +
+				"BuergerId: " + getIdentityNumber() + " Kunden Nummer: " + getCustomerNumber();
 	}
 
 }

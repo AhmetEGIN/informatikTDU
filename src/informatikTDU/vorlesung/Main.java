@@ -7,7 +7,13 @@ public class Main {
 	public static void main(String[] args) {
 		Kunde[] kunden = new Kunde[100];
 		Mitarbeiter[] mitarbeiter = new Mitarbeiter[100];
-		int index = 10;
+		int index = 0;
+		
+//		Mitarbeiter m = new Mitarbeiter("1231231");
+//		System.out.println(m.toString());
+		Kunde k = new Kunde("1231231", "Ahmet", "EGİN");
+		System.out.println(k);
+		
 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Wählen Sie eine Option aus: ");

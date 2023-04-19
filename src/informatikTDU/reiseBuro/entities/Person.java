@@ -41,6 +41,17 @@ public class Person {
 		this.address = address;
 		this.phoneNumber = phoneNumber;
 	}
+	
+	public Person(String firstName, String lastName, String identityNumber, LocalDate birthDate, String address,
+			String phoneNumber) {
+
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.identityNumber = identityNumber;
+		this.birthDate = birthDate;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+	}
 
 	public int getId() {
 		return id;

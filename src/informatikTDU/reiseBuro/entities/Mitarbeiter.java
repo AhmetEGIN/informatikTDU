@@ -22,6 +22,14 @@ public class Mitarbeiter extends Person {
 		this.insuranceNumber = insuranceNumber;
 		this.jobPosition = jobPosition;
 	}
+	
+	public Mitarbeiter(String firstName, String lastName, String identityNumber, LocalDate birthDate,
+			String address, String phoneNumber, String insuranceNumber, String jobPosition) {
+		
+		super(firstName, lastName, identityNumber, birthDate, address, phoneNumber);
+		this.insuranceNumber = insuranceNumber;
+		this.jobPosition = jobPosition;
+	}
 
 	public String getInsuranceNumber() {
 		return insuranceNumber;
@@ -38,5 +46,11 @@ public class Mitarbeiter extends Person {
 	public void setJobPosition(String jobPosition) {
 		this.jobPosition = jobPosition;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Vor- und Nachname: " + getFirstName() + " " + getLastName() +"\n" +
+				"BuergerId: " + getIdentityNumber() + "  Versicherungsnummer: " + getInsuranceNumber();
+	}
+	
 }
