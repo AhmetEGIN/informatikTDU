@@ -23,7 +23,11 @@ public class Person {
 	public LocalDate getCreatedDate() {
 		return createdDate;
 	}
-
+	
+	public Person(String identityNumber) {
+		this.identityNumber = identityNumber;
+	}
+	
 	public Person(int id, String firstName, String lastName, String identityNumber) {
 		this.id = id;
 		this.firstName = firstName;
@@ -41,7 +45,7 @@ public class Person {
 		this.address = address;
 		this.phoneNumber = phoneNumber;
 	}
-	
+
 	public Person(String firstName, String lastName, String identityNumber, LocalDate birthDate, String address,
 			String phoneNumber) {
 
@@ -125,4 +129,29 @@ public class Person {
 		this.isDeleted = isDeleted;
 	}
 
+
+
+	@Override
+	public int hashCode() {
+		return getIdentityNumber().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return getIdentityNumber().equals(other.getIdentityNumber());
+		
+		
+	}
+
+
+	
+	
+	
 }

@@ -36,5 +36,9 @@ public class Kunde extends Person {
 		
 		return "Name: " + getNachname();
 	}
+	
+	public void irgendwas() {
+		System.out.println("Kunde");
+	}
 
 }

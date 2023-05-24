@@ -11,9 +11,11 @@ public class Main {
 		
 //		Mitarbeiter m = new Mitarbeiter("1231231");
 //		System.out.println(m.toString());
-		Kunde k = new Kunde("1231231", "Ahmet", "EGİN");
-		System.out.println(k);
+//		Person k = new Kunde("1231231", "Ahmet", "EGİN");
+//		k.irgendwas();
+//		
 		
+	
 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Wählen Sie eine Option aus: ");

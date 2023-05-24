@@ -1,6 +1,8 @@
 package informatikTDU.reiseBuro.business.concretes;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 
 import informatikTDU.reiseBuro.business.abstracts.MitarbeiterService;
 import informatikTDU.reiseBuro.business.constants.systemMessages.Messages;
@@ -8,35 +10,60 @@ import informatikTDU.reiseBuro.entities.Mitarbeiter;
 
 public class MitarbeiterManager implements MitarbeiterService {
 
-	private Mitarbeiter[] mitarbeiter;
+	private List<Mitarbeiter> mitarbeiter;
+	private static int id = 1;
 
-	private int n = 0;
 
 	public MitarbeiterManager() {
-		mitarbeiter = new Mitarbeiter[100];
+		mitarbeiter = new ArrayList<>();
 	}
 
 	@Override
 	public void mitarbeiterHinzufügen(Mitarbeiter m) {
-		mitarbeiter[n] = m;
-		n++;
+		existsMitarbeiterByIdentityNumber(m.getIdentityNumber());
+		m.setId(id);
+		id ++;
+		mitarbeiter.add(m);
+		
+		
+		System.out.println(Messages.GeneralPersonMessages.PERSON_ADDED);
 
+	}
+	@Override
+	public void deleteByBuergerId(String buergerId) {
+		
+		Mitarbeiter tempMitarbeiter = getByIdentityNumber(buergerId);	
+		mitarbeiter.remove(tempMitarbeiter);
+		System.out.println(Messages.GeneralPersonMessages.PERSON_DELETED);
+		
 	}
 
 	@Override
 	public void printAllMitarbeiter() {
-		Arrays.stream(mitarbeiter, 0, n).forEach(m -> System.out.println(m));
+
+		mitarbeiter.stream().forEach(System.out::println);
 
 	}
 
 	@Override
 	public Mitarbeiter getByIdentityNumber(String identityNumber) {
 
-		return Arrays.stream(mitarbeiter, 0, n).filter(m -> m.getIdentityNumber().equals(identityNumber)).findFirst()
-				.orElseThrow(() -> new NullPointerException(Messages.MITARBEITER_NOT_FOUND));
-		
-	}
-	
+		return mitarbeiter.stream().filter(m -> m.getIdentityNumber().equals(identityNumber)).findFirst()
+				.orElseThrow(() -> new RuntimeException(Messages.MitarbeiterMessages.MITARBEITER_NOT_FOUND));
 
+	}
+
+	private void existsMitarbeiterByIdentityNumber(String identityNumber) {
+		Mitarbeiter tempMitarbeiter = new Mitarbeiter(identityNumber);
+		Predicate<Mitarbeiter> condition = m -> m.equals(tempMitarbeiter);
+ 
+
+		if (!mitarbeiter.stream().filter(condition).findFirst().isEmpty()) {
+			throw new RuntimeException(Messages.MitarbeiterMessages.MITARBEITER_ALREADY_EXISTS);
+		}
+
+	}
+
+		
 
 }

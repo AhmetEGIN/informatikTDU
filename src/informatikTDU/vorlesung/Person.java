@@ -59,6 +59,9 @@ public abstract class Person  extends Object{
 		this.alter = alter;
 	}
 	
+	public void irgendwas() {
+		System.out.println("Person");
+	}
 	
 	
 }

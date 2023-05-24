@@ -1,13 +1,23 @@
 package informatikTDU.reiseBuro.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Kunde extends Person {
 
 	private String customerNumber;
 	private String cardNumber;
 	private int creditRating;
+	
+	private List<ReisePaket> reisepaketen = new ArrayList<ReisePaket>();
+	
 
+
+	public Kunde(String identityNumber) {
+		super(identityNumber);
+	}
+	
 	public Kunde(int id, String firstName, String lastName, String identityNumber, String customerNumber,
 			String cardNumber, int creditRating) {
 
@@ -62,10 +72,21 @@ public class Kunde extends Person {
 		this.creditRating = creditRating;
 	}
 	
+	public List<ReisePaket> getReisepaketen() {
+		return reisepaketen;
+	}
+
+	public void setReisepaketen(List<ReisePaket> reisepaketen) {
+		this.reisepaketen = reisepaketen;
+	}
+	
 	@Override
 	public String toString() {
 		return "Vor- und Nachname: " + getFirstName() + " " + getLastName() +"\n" +
 				"BuergerId: " + getIdentityNumber() + " Kunden Nummer: " + getCustomerNumber();
 	}
+	
+
+
 
 }

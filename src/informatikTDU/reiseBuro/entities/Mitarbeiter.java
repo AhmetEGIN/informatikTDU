@@ -6,6 +6,12 @@ public class Mitarbeiter extends Person {
 
 	private String insuranceNumber;
 	private String jobPosition;
+	
+	
+	public Mitarbeiter(String identityNumber) {
+		super(identityNumber);
+		
+	}
 
 	public Mitarbeiter(int id, String firstName, String lastName, String identityNumber, String insuranceNumber,
 			String jobPosition) {
@@ -52,5 +58,6 @@ public class Mitarbeiter extends Person {
 		return "Vor- und Nachname: " + getFirstName() + " " + getLastName() +"\n" +
 				"BuergerId: " + getIdentityNumber() + "  Versicherungsnummer: " + getInsuranceNumber();
 	}
+	
 	
 }
